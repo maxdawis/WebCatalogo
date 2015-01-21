@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= favicon_link_tag 'favicon.ico' %>
+  <title>SINDEC CatalogoWeb</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container=fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.salvador.ba.gov.br" target="_blank">
+        <img alt="Brand" src="http://www.sefaz.salvador.ba.gov.br/Imagens/logoPrefeitura.png">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/ideas">Produtos</a></li>
+      </ul>
+      <a class="navbar-brand" href="/comments">Atributos</a>
+            <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Buscar">
+        </div>
+        <button type="submit" class="btn btn-default">Ir</button>
+      </form>
+        <p class="navbar-text pull-right">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+            <button type="button" class="btn btn-default btn-sm"><%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %></button> |
+            <button type="button" class="btn btn-default btn-sm"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></button>
+          <% else %>
+            <button type="button" class="btn btn-default btn-sm"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></button> |
+            <button type="button" class="btn btn-default btn-sm"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %></button>
+        </p>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
+
+<footer>
+   <!-- <nav class="navbar navbar-inverse navbar-bottom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <!--<img alt="Brand" src="http://1.bp.blogspot.com/-thDwfG6U-40/U_X_3y90qgI/AAAAAAAAL9c/Prng7DIKBMA/s1600/SSA.png"> --> <!-- Desenvolvido por MaxTechnology para NTI-SINDEC 
+          </a>
+          <p class="navbar-text pull-right"> Desenvolvido por <a href="http://mdawis.wix.com/maxtechnology" target="_blank">MaxTechnology</a> para NTI - SINDEC.</p>
+        </div>
+      </div>
+    </nav> -->
+
+<nav class="navbar navbar-inverse navbar-bottom">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <div class="container">
+      <a class="navbar-brand" href="#"><img alt="Brand" src="http://1.bp.blogspot.com/-thDwfG6U-40/U_X_3y90qgI/AAAAAAAAL9c/Prng7DIKBMA/s1600/SSA.png"></a>
+    </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse">
+        <div class="nav navbar-nav">
+          <div class="container">
+          <p class="navbar-text pull-right"> Desenvolvido por <a href="http://mdawis.wix.com/maxtechnology" target="_blank">MaxTechnology</a> para NTI - SINDEC.</p>
+        </div>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+</footer>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

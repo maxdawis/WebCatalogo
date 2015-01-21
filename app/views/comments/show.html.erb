@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo de Atributo:</strong>
+  <%= @comment.user_name %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <strong>Identificação:</strong>
+  <%= @comment.idea_id %>
+</p>
+
+<button type="button" class="btn btn-primary btn-sm"><%= link_to 'Editar', edit_comment_path(@comment) %></button> |
+<button type="button" class="btn btn-primary btn-sm"><%= link_to 'Voltar', comments_path %></button>
